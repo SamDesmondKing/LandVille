@@ -5,8 +5,6 @@
 //
 // If you find yourself needing to do input here rethink your solution.
 
-// THIS IS A CHANGE I MADE TO PRACTICE GIT
-
 class LandVille {
 	private int[][] land;
 	// you will need to add the variable 'hasHouse'
