@@ -18,7 +18,7 @@ public class LandVilleMain {
 		// Build a loop to display the menu, prompt for input and process it as per
 		// requirements.
 		
-		LandVille go = new LandVille(5,6);
+		LandVille go = new LandVille(3,3);
 		go.displayLand();
 
 	}

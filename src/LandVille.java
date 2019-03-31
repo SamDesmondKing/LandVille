@@ -7,54 +7,62 @@
 
 class LandVille {
 	private int[][] land;
+	private boolean hasHouse;
 	// you will need to add the variable 'hasHouse'
 
 	// Constructor...
-	
+
 	// Assumption - rows and columns has been validated beforehand.
-	
+
 	// Create the array that the land variable above will reference (using the 'new'
 	// operator)
-	
+
 	// Initialise the land so that each cell is set to the character '0' (hint: use
 	// one of your methods!).
-	
+
 	// Set the value of any other variables
-	
+
 	public LandVille(int maxRows, int maxColumns) {
+
+		/*
+		 * The constructor of the LandVille class takes 2 parameters: the number of rows
+		 * of the land, the number of columns of the land. In the constructor of this
+		 * class, write code to initialize land with the size of row and column.
+		 * Initialize each value of the array land with the value 0, which means that
+		 * plot is empty. Initialize the value of hasHouse to false
+		 */
+
 		
-		/*The constructor of the LandVille class takes 2 parameters: the number of rows of the land,
-		the number of columns of the land. In the constructor of this class, write code to initialize
-		land with the size of row and column. Initialize each value of the array land with the value
-		0, which means that plot is empty. Initialize the value of hasHouse to false */
-		
-		boolean hasHouse = false;
-		
+		this.hasHouse = false;
 		this.land = new int[maxRows][maxColumns];
-		
+
+		for (int i = 0; i < land.length; i++) {
+			for (int j = 0; j < land[i].length; j++) {
+				land[i][j] = 0;
+			}
+		}
+	}
+
+	// Display the land grid
+	public void displayLand() {
+
+		for (int[] i : land) {
+			for (int j : i) {
+				System.out.print(j + " ");
+			}
+			System.out.println("\n");
+		}
+	}
+
+	// Clear out the land. This involves setting each cell to be the character '0'
+	public void clearLand() {
+
 		for (int i = 0; i < land.length; i++) {
 			for (int j = 0; j < land[i].length; j++) {
 				land[i][j] = 0;
 			}
 		}
 		
-	
-	}
-
-	// Display the land grid
-	public void displayLand() {
-
-		  for (int[] i : land) {
-	            for (int j : i) {
-	                System.out.print(j + " ");
-	            }
-	            System.out.println("\n");
-	        } 
-	}
-
-	// Clear out the land. This involves setting each cell to be the character '0'
-	public void clearLand() {
-
 	}
 
 	// Build a house
