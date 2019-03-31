@@ -1,9 +1,11 @@
-
+import java.util.Scanner;
 // import whatever packages are needed here
 
 public class LandVilleMain {
 
 	public static void main(String[] args) {
+		
+		
 		// Create a Scanner object for input
 
 		// Input # of rows, # of columns for the land size, check for valid input.
@@ -15,6 +17,9 @@ public class LandVilleMain {
 
 		// Build a loop to display the menu, prompt for input and process it as per
 		// requirements.
+		
+		LandVille go = new LandVille(5,6);
+		go.displayLand();
 
 	}
 
