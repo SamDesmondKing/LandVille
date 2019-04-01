@@ -32,32 +32,34 @@ public class LandVilleMain {
 		// Initializing LandVille
 		LandVille go = new LandVille(rows, columns);
 
+		//Storing the menu in an array for code cleanliness
+		String[] menu = { "\nWhat would you like to do?", "\n (1) Build a House", "\n (2) Display Land",
+				"\n (3) Clear Land", "\n (4) Quit" };
 
-		// Menu choice if statement 
-		
-		//Bug - Menu not displaying error message after entering invalid int twice.
-		
+		// Menu choice if statement. Loops after option is executed unless user inputs
+		// 4, which quits the program.
 		while (menuInput != 4) {
+
+			for (int i = 0; i < menu.length; i++) {
+				System.out.println(menu[i]);
+			}
 			
-			System.out.println("What would you like to do?\n1. Build a House\n2. Display Land\n3. Clear Land\n4. Quit");
 			menuInput = sc.nextInt();
-			
+
 			if (menuInput == 1) {
-				System.out.println("You chose one\n");
+				System.out.println("You chose one");
 				menuInput = 0;
 			} else if (menuInput == 2) {
-				System.out.println("You chose two\n");
+				System.out.println("You chose two");
 				menuInput = 0;
 			} else if (menuInput == 3) {
-				System.out.println("You chose three\n");
+				System.out.println("You chose three");
 				menuInput = 0;
 			} else if (menuInput == 4) {
 				System.out.println("Goodbye!");
 			} else {
 				System.out.println("Error - please choose a valid option.");
 			}
-			
-				
-		}		
+		}
 	}
 }
