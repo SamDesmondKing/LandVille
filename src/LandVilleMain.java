@@ -4,15 +4,12 @@ public class LandVilleMain {
 
 	public static void main(String[] args) {
 
-		// Build a loop to display the menu, prompt for input and process it as per
-		// requirements.
-
 		int rows = 0;
 		int columns = 0;
 		int menuInput = 0;
 		Scanner sc = new Scanner(System.in);
 
-		// Enter rows
+		// User enters rows
 		System.out.println("Welcome to LandVille!\n\nHow many rows would you like to build on? (1-10):");
 		rows = sc.nextInt();
 
@@ -22,7 +19,7 @@ public class LandVilleMain {
 			rows = sc.nextInt();
 		}
 
-		// Enter columns
+		// User enters columns
 		System.out.println("How many columns would you like to build on? (1-10):");
 		columns = sc.nextInt();
 
@@ -37,36 +34,30 @@ public class LandVilleMain {
 
 
 		// Menu choice if statement 
+		
+		//Bug - Menu not displaying error message after entering invalid int twice.
+		
 		while (menuInput != 4) {
 			
 			System.out.println("What would you like to do?\n1. Build a House\n2. Display Land\n3. Clear Land\n4. Quit");
 			menuInput = sc.nextInt();
 			
 			if (menuInput == 1) {
-				System.out.println("You chose one");
+				System.out.println("You chose one\n");
 				menuInput = 0;
 			} else if (menuInput == 2) {
-				System.out.println("You chose two");
+				System.out.println("You chose two\n");
 				menuInput = 0;
 			} else if (menuInput == 3) {
-				System.out.println("You chose three");
+				System.out.println("You chose three\n");
 				menuInput = 0;
+			} else if (menuInput == 4) {
+				System.out.println("Goodbye!");
 			} else {
-				System.out.println(
-						"Error - please choose an option.\nWhat would you like to do?\n1. Build a House\n2. Display Land\n3. Clear Land\n4. Quit");
-				menuInput = sc.nextInt();
+				System.out.println("Error - please choose a valid option.");
 			}
 			
-			
-			
-			
-			
-			
-		}
-
-		
-
-			
-		
+				
+		}		
 	}
 }
