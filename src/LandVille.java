@@ -8,9 +8,6 @@
 class LandVille {
 	private int[][] land;
 	private boolean hasHouse;
-	// you will need to add the variable 'hasHouse'
-
-	// Constructor...
 
 	// Assumption - rows and columns has been validated beforehand.
 
@@ -22,16 +19,8 @@ class LandVille {
 
 	// Set the value of any other variables
 
+	//Constructor
 	public LandVille(int maxRows, int maxColumns) {
-
-		/*
-		 * The constructor of the LandVille class takes 2 parameters: the number of rows
-		 * of the land, the number of columns of the land. In the constructor of this
-		 * class, write code to initialize land with the size of row and column.
-		 * Initialize each value of the array land with the value 0, which means that
-		 * plot is empty. Initialize the value of hasHouse to false
-		 */
-
 		
 		this.hasHouse = false;
 		this.land = new int[maxRows][maxColumns];
@@ -46,6 +35,7 @@ class LandVille {
 	// Display the land grid
 	public void displayLand() {
 
+		System.out.println("\nYour Land:\n");
 		for (int[] i : land) {
 			for (int j : i) {
 				System.out.print(j + " ");
@@ -62,7 +52,7 @@ class LandVille {
 				land[i][j] = 0;
 			}
 		}
-		
+		this.hasHouse = false;
 	}
 
 	// Build a house
