@@ -17,7 +17,7 @@ class LandVille {
 	// Create the array that the land variable above will reference (using the 'new'
 	// operator)
 
-	// Initialise the land so that each cell is set to the character '0' (hint: use
+	// Initialize the land so that each cell is set to the character '0' (hint: use
 	// one of your methods!).
 
 	// Set the value of any other variables
