@@ -8,17 +8,14 @@ class LandVille {
 
 	// Constructor.
 	public LandVille(int maxRows, int maxColumns) {
-
 		this.hasHouse = false;
 		this.maxRows = maxRows;
 		this.maxColumns = maxColumns;
 		this.land = new int[maxRows][maxColumns];
-
 	}
 
 	// Displays the land grid.
 	public void displayLand() {
-
 		System.out.println("Your Land:\n");
 		for (int[] i : this.land) {
 			for (int j : i) {
@@ -30,7 +27,6 @@ class LandVille {
 
 	// Clears out the land. This involves setting each cell to be the character '0'.
 	public void clearLand() {
-
 		for (int i = 0; i < this.land.length; i++) {
 			for (int j = 0; j < this.land[i].length; j++) {
 				land[i][j] = 0;
@@ -39,47 +35,53 @@ class LandVille {
 		this.hasHouse = false;
 	}
 
-	// Builds House.
+	// Builds House, sets hasHouse to true and displays house on the land.
 	public void buildHouse(int rows, int columns) {
-
-		// Ensure none of the other rules are violated
-		// - again display an error message and return if they are violated
-
-		// If all is ok "build" the house on the land (using the character '8')
-		// surrounded by a pretty little fence of '1' characters.
-		// Finally update 'hasHouse' and call on displayLand().
-
-		if (rows >= (this.maxRows - 2) || columns >= (this.maxColumns - 2)) {
+		
+		//Check to see if the house will fit on the allocated land.
+		if (rows > (this.maxRows - 2) || columns > (this.maxColumns - 2)) {
 			System.out.println("Sorry - your house is too big for the land you've allocated. Try again.");
 			return;
 		}
 
-		//Loop through all the arrays
-		for (int i = 0; i <= rows + 1; i++) {
-			//Loop through all the elements of each array
-			for (int j = 0; j <= columns + 1; j++) {
-				
-				this.land[i][0] = 1;
-				this.land[0][j] = 1;
-			
-				
-				
-				//Makes the values of index (columns + 1) equal to 1 in all arrays up to i.
-				this.land[i][columns+1] = 1;
-				
-				//Finds array (rows+1), iterates through making all vales up to j equal to 1.
-				this.land[rows+1][j] = 1;
-				
-				
-				
+		// -- Building the House --
+		//Loop through all the arrays.
+		for (int i = 0; i < rows + 1; i++) {
+			//Loop through all the elements of each array.
+			for (int j = 0; j < columns + 1; j++) {
+				this.land[i][j] = 8;
 			}
 		}
 		
+		// -- Building the Fence --
+		//Loop through all the arrays.
+		for (int i = 0; i <= rows + 1; i++) {
+			//Loop through all the elements of each array.
+			for (int j = 0; j <= columns + 1; j++) {
+				
+				//Makes the value at index [0] equal to 1 in all arrays up to i (rows + 1).
+				//This is the left hand side of the fence.
+				this.land[i][0] = 1;
+				
+				//Find the array at index [0] and makes all values in it up to j (columns + 1) equal to 1.
+				//This is the top of the fence.
+				this.land[0][j] = 1;
+				
+				//Makes the values of index (columns + 1) equal to 1 in all arrays up to i (rows + 1).
+				//This is the right hand side of the fence.
+				this.land[i][columns+1] = 1;
+				
+				//Finds array (rows+1), iterates through making all vales up to j (columns + 1) equal to 1.
+				//This is the bottom side of the fence.
+				this.land[rows+1][j] = 1;
+			}
+		}
 		
-
+		//Lets the program know that this instance of LandVille already has a house.
 		this.hasHouse = true;
+		
+		//Displays the land for the user before they return to the main menu.
 		this.displayLand();
-
 	}
 
 	// Main Method.
