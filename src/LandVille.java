@@ -16,7 +16,7 @@ class LandVille {
 
 	// Displays the land grid.
 	public void displayLand() {
-		System.out.println("Your Land:\n");
+		System.out.println("\nYour Land:\n");
 		for (int[] i : this.land) {
 			for (int j : i) {
 				System.out.print(j + " ");
@@ -100,7 +100,7 @@ class LandVille {
 		int houseRows = 0;
 		int houseColumns = 0;
 		int menuInput = 0;
-		boolean firstLoop = false;
+		boolean loopCheck = false;
 
 		// Initializing scanner object.
 		Scanner sc = new Scanner(System.in);
@@ -117,7 +117,7 @@ class LandVille {
 		}
 
 		// User enters land columns.
-		System.out.println("\nHow many columns would you like to build on? (1-10):");
+		System.out.println("\nHow many columns of land would you like to build on? (1-10):");
 		landColumns = sc.nextInt();
 
 		// Column error checking.
@@ -139,7 +139,7 @@ class LandVille {
 
 			// Checks if user has already been through the menu, if so different wording
 			// used for added engagement.
-			if (firstLoop == true) {
+			if (loopCheck == true) {
 				menu[0] = "\nWhat would you like to do next?";
 			}
 			// Prints menu array.
@@ -189,7 +189,7 @@ class LandVille {
 			}
 
 			// Lets the program know the user has completed their first loop of the menu.
-			firstLoop = true;
+			loopCheck = true;
 		}
 	}
 }
