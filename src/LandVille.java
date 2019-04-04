@@ -1,12 +1,15 @@
 class LandVille {
 	private int[][] land;
+	private int maxRows;
+	private int maxColumns;
 	private boolean hasHouse;
-	
 
 	//Constructor
 	public LandVille(int maxRows, int maxColumns) {
 		
 		this.hasHouse = false;
+		this.maxRows = maxRows;
+		this.maxColumns = maxColumns;
 		this.land = new int[maxRows][maxColumns];
 
 		for (int i = 0; i < land.length; i++) {
@@ -19,7 +22,7 @@ class LandVille {
 	// Display the land grid
 	public void displayLand() {
 
-		System.out.println("\nYour Land:\n");
+		System.out.println("Your Land:\n");
 		for (int[] i : land) {
 			for (int j : i) {
 				System.out.print(j + " ");
@@ -42,17 +45,17 @@ class LandVille {
 	public void buildHouse(int rows, int columns) {
 		
 		// Build a house
-		// Validate the inputs to ensure they make sense for the size of the land
-		// - display an error message and return if they don't.
 
 		// Ensure none of the other rules are violated
 		// - again display an error message and return if they are violated
 
 		// If all is ok "build" the house on the land (using the character '8')
-		// surrounded
-		// by a pretty little fence of '1' characters.
+		// surrounded by a pretty little fence of '1' characters.
 		// Finally update 'hasHouse' and call on displayLand().
 
+		if (rows >= (this.maxRows - 2) || columns >= (this.maxColumns - 2)) {
+			System.out.println("Sorry - your house is too big for the land you've allocated. Try again.");
+			return;
+		}	
 	}
-
 }
