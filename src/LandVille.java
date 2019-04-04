@@ -31,8 +31,8 @@ class LandVille {
 	// Clears out the land. This involves setting each cell to be the character '0'.
 	public void clearLand() {
 
-		for (int i = 0; i < land.length; i++) {
-			for (int j = 0; j < land[i].length; j++) {
+		for (int i = 0; i < this.land.length; i++) {
+			for (int j = 0; j < this.land[i].length; j++) {
 				land[i][j] = 0;
 			}
 		}
@@ -41,7 +41,6 @@ class LandVille {
 
 	// Builds House.
 	public void buildHouse(int rows, int columns) {
-
 
 		// Ensure none of the other rules are violated
 		// - again display an error message and return if they are violated
@@ -55,36 +54,29 @@ class LandVille {
 			return;
 		}
 
-		
-		
-		
-		//Building the fence
-		for (int i = 0; i < rows + 2; i++) {
-			land[i][0] = 1;
-			land[rows+1][i] = 1;
-			for (int j = 0; j < columns + 2; j++) {
-				land[0][j] = 1;
-				land[j][columns+1] = 1;
+		//Loop through all the arrays
+		for (int i = 0; i <= rows + 1; i++) {
+			//Loop through all the elements of each array
+			for (int j = 0; j <= columns + 1; j++) {
+				
+				this.land[i][0] = 1;
+				this.land[0][j] = 1;
+			
+				
+				
+				//Makes the values of index (columns + 1) equal to 1 in all arrays up to i.
+				this.land[i][columns+1] = 1;
+				
+				//Finds array (rows+1), iterates through making all vales up to j equal to 1.
+				this.land[rows+1][j] = 1;
+				
+				
+				
 			}
 		}
 		
-		//Building the house
-		for (int i = 0; i < rows; i++) {
-			land[i+1][1] = 8;
-			land[rows][i+1] = 8;
-			for (int j = 0; j < columns; j++) {
-				land[1][j+1] = 8;
-				land[j+1][columns] = 8;
-			}
-		}
 		
-		
-		//land[rows][columns] = 8;
-		
-		
-		
-		
-		
+
 		this.hasHouse = true;
 		this.displayLand();
 
