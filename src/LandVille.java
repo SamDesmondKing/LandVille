@@ -107,22 +107,22 @@ class LandVille {
 
 		// Welcome banner plus taking row input.
 		System.out.println(
-				"\n\n\n             ~~~~~~~~~***~~~~~~~~~~\n             Welcome to LandVille!\n             ~~~~~~~~~***~~~~~~~~~~\n\nHow many rows of land would you like to build on? (1-10):");
+				"\n\n\n             ~~~~~~~~~***~~~~~~~~~~\n             Welcome to LandVille!\n             ~~~~~~~~~***~~~~~~~~~~\n\nHow many rows of land would you like to build on? (1-9):");
 		landRows = sc.nextInt();
 
 		// Row error checking.
 		while (landRows > 10 || landRows <= 0) {
-			System.out.println("\nError - please enter a number of rows between 1 and 10.");
+			System.out.println("\nError - please enter a number of rows between 1 and 9.");
 			landRows = sc.nextInt();
 		}
 
 		// User enters land columns.
-		System.out.println("\nHow many columns of land would you like to build on? (1-10):");
+		System.out.println("\nHow many columns of land would you like to build on? (1-9):");
 		landColumns = sc.nextInt();
 
 		// Column error checking.
 		while (landColumns > 10 || landColumns <= 0) {
-			System.out.println("\nError - please enter a numer of columns between 1 and 10");
+			System.out.println("\nError - please enter a numer of columns between 1 and 9");
 			landColumns = sc.nextInt();
 		}
 
