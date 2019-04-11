@@ -32,15 +32,38 @@ class LandVille {
 				land[i][j] = 0;
 			}
 		}
+		//Makes sure hasHouse is set to false
 		this.hasHouse = false;
+		
+		//Success message
+		System.out.println("Your land has been cleared!");
+		
+		//Displays freshly cleared land
+		this.displayLand();
 	}
 
 	// Builds House, sets hasHouse to true and displays house on the land.
 	public void buildHouse(int rows, int columns) {
+		String errorPlace = "";
+		String errorSize = "";
+		
 
 		// Check to see if the house will fit on the allocated land.
 		if (rows > (this.maxRows - 2) || columns > (this.maxColumns - 2)) {
-			System.out.println("\nSorry - your house is too big for the land you've allocated. Try again.");
+			
+			if (rows > (this.maxRows - 2) && columns > (this.maxColumns - 2)) {
+				errorPlace = "Rows and columns";
+				errorSize = (this.maxRows - 2) + " and " + (this.maxColumns - 2) + " Respectively";
+				
+			} else if (rows > (this.maxRows - 2)) {
+				errorPlace = "Rows";
+				errorSize =  "" + (this.maxRows - 2);
+			} else if (columns > (this.maxColumns - 2)) {
+				errorPlace = "Columns";
+				errorSize = "" + (this.maxColumns - 2);
+			}
+			System.out.println("Sorry - your house is too big for the land you've allocated.\n" + errorPlace
+					+ " of house need to be less than or equal to " + errorSize + ".\nNo house is built.");
 			return;
 		}
 
@@ -89,7 +112,7 @@ class LandVille {
 		this.displayLand();
 
 		// Success message
-		System.out.println("\nYou have built a house! It looks great!");
+		System.out.println("You have built a house! It looks great!");
 	}
 
 	// Main Method.
@@ -107,22 +130,22 @@ class LandVille {
 
 		// Welcome banner plus taking row input.
 		System.out.println(
-				"\n\n\n             ~~~~~~~~~***~~~~~~~~~~\n             Welcome to LandVille!\n             ~~~~~~~~~***~~~~~~~~~~\n\nHow many rows of land would you like to build on? (1-9):");
+				"\n\n\n             ~~~~~~~~~***~~~~~~~~~~\n             Welcome to LandVille!\n             ~~~~~~~~~***~~~~~~~~~~\n\nHow many rows of land would you like to build on? (1-10):");
 		landRows = sc.nextInt();
 
 		// Row error checking.
 		while (landRows > 10 || landRows <= 0) {
-			System.out.println("\nError - please enter a number of rows between 1 and 9.");
+			System.out.println("Error - please enter a number of rows between 1 and 10.");
 			landRows = sc.nextInt();
 		}
 
 		// User enters land columns.
-		System.out.println("\nHow many columns of land would you like to build on? (1-9):");
+		System.out.println("How many columns of land would you like to build on? (1-10):");
 		landColumns = sc.nextInt();
 
 		// Column error checking.
 		while (landColumns > 10 || landColumns <= 0) {
-			System.out.println("\nError - please enter a numer of columns between 1 and 9");
+			System.out.println("Error - please enter a numer of columns between 1 and 10");
 			landColumns = sc.nextInt();
 		}
 
@@ -130,7 +153,7 @@ class LandVille {
 		LandVille go = new LandVille(landRows, landColumns);
 
 		// Storing the menu in an array for code cleanliness.
-		String[] menu = { "\nWhat would you like to do first?", "\n (1) Build a House", "\n (2) Display Land",
+		String[] menu = { "What would you like to do first?", "\n (1) Build a House", "\n (2) Display Land",
 				"\n (3) Clear Land", "\n (4) Quit" };
 
 		// Menu choice if statement. Loops after option is executed unless user inputs
@@ -140,7 +163,7 @@ class LandVille {
 			// Checks if user has already been through the menu, if so different wording
 			// used for added engagement.
 			if (loopCheck == true) {
-				menu[0] = "\nWhat would you like to do next?";
+				menu[0] = "What would you like to do next?";
 			}
 			// Prints menu array.
 			for (int i = 0; i < menu.length; i++) {
@@ -154,16 +177,16 @@ class LandVille {
 
 				if (go.hasHouse == false) {
 
-					System.out.println("\nWhat is the length of your house?");
+					System.out.println("\nHow many rows is your house?");
 					houseRows = sc.nextInt();
-					System.out.println("\nWhat is the width of your house?");
+					System.out.println("\nHow many columns is your house?");
 					houseColumns = sc.nextInt();
 
 					go.buildHouse(houseRows, houseColumns);
 
 				} else {
 					System.out.println(
-							"\nSorry - you already have a house on this land!\nRemember to 'clear land' before building a new house.");
+							"Sorry - you already have a house on this land!\nRemember to 'clear land' before building a new house.");
 				}
 				menuInput = 0;
 			}
@@ -175,17 +198,16 @@ class LandVille {
 			// 'Clear land' option. Calls clear land method.
 			else if (menuInput == 3) {
 				go.clearLand();
-				System.out.println("\nYour land has been cleared!");
 				menuInput = 0;
 			}
 			// 'Quit' option - prints goodbye message, closes scanner and breaks menu loop.
 			else if (menuInput == 4) {
 				sc.close();
-				System.out.println("\nGoodbye!");
+				System.out.println("Goodbye!");
 			}
 			// Catching invalid inputs here.
 			else {
-				System.out.println("\nError - please choose a valid option.");
+				System.out.println("Error - please choose a valid option.");
 			}
 
 			// Lets the program know the user has completed their first loop of the menu.
