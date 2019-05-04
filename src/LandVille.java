@@ -54,7 +54,6 @@ class LandVille {
 			if (rows > (this.maxRows - 2) && columns > (this.maxColumns - 2)) {
 				errorPlace = "Rows and columns";
 				errorSize = (this.maxRows - 2) + " and " + (this.maxColumns - 2) + " Respectively";
-				
 			} else if (rows > (this.maxRows - 2)) {
 				errorPlace = "Rows";
 				errorSize =  "" + (this.maxRows - 2);
@@ -62,7 +61,7 @@ class LandVille {
 				errorPlace = "Columns";
 				errorSize = "" + (this.maxColumns - 2);
 			}
-			System.out.println("Sorry - your house is too big for the land you've allocated.\n" + errorPlace
+			System.out.println("\nSorry - your house is too big for the land you've allocated.\n" + errorPlace
 					+ " of house need to be less than or equal to " + errorSize + ".\nNo house is built.");
 			return;
 		}
@@ -177,16 +176,16 @@ class LandVille {
 
 				if (go.hasHouse == false) {
 
-					System.out.println("\nHow many rows is your house?");
+					System.out.println("How many rows is your house?");
 					houseRows = sc.nextInt();
-					System.out.println("\nHow many columns is your house?");
+					System.out.println("How many columns is your house?");
 					houseColumns = sc.nextInt();
 
 					go.buildHouse(houseRows, houseColumns);
 
 				} else {
 					System.out.println(
-							"Sorry - you already have a house on this land!\nRemember to 'clear land' before building a new house.");
+							"\nSorry - you already have a house on this land!\nRemember to 'clear land' before building a new house.");
 				}
 				menuInput = 0;
 			}
@@ -203,7 +202,7 @@ class LandVille {
 			// 'Quit' option - prints goodbye message, closes scanner and breaks menu loop.
 			else if (menuInput == 4) {
 				sc.close();
-				System.out.println("Goodbye!");
+				System.out.println("\nGoodbye!");
 			}
 			// Catching invalid inputs here.
 			else {
